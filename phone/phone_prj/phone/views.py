@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Phone
+from django.views.generic import ListView
 
 # Create your views here.
 
-def list(request):
-    phones=Phone.objects.all().order_by("name") #이름순으로 정렬하기
-    return render(request, 'phone/list.html', {'phones':phones})
+class IndexView(ListView):
+    queryset=Phone.objects.all().order_by('-id')
+    template_name='phone/list.html'
+    context_object_name='phones'
 
 def result(request):
     searchWord = request.GET.get('searchWord')  
