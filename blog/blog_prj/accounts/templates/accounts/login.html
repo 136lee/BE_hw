@@ -7,7 +7,7 @@
   </head>
   <body>
     <h2>로그인</h2>
-    <form method="POST" actions="{% url 'accounts:login' %}">
+    <form method="POST" action="{% url 'accounts:login' %}">
       {%csrf_token%} {{form.as_p}}
       <button type="submit">로그인</button>
     </form>

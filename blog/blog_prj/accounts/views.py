@@ -25,7 +25,7 @@ def signup(request):
         form.save()
         return redirect('accounts:login')
     else:
-        return render(request, 'accounts/signup.html', {form:'form'})
+        return render(request, 'accounts/signup.html', {'form': form})
     
 def logout(request):
     if request.user.is_authenticated:
