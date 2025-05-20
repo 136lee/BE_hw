@@ -57,7 +57,3 @@ def delete(request, id):
     post=get_object_or_404(Post, id=id)
     post.delete()
     return redirect('blog:list')
-
-def myblog(request):
-    posts=request.user.posts.all().order_by('-id')
-    return render(request, 'accounts/myblog.html', {'posts':posts})
